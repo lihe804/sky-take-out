@@ -32,3 +32,11 @@ sky:
     admin-secret-key: itcast
     admin-ttl: 7200000000
     admin-token-name: token
+
+
+aliyun:
+  oss:
+    endpoint: ${sky.aliyun.oss.endpoint}
+    bucketName: ${sky.aliyun.oss.bucketName}
+    region: ${sky.aliyun.oss.region}
+
