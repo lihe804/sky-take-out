@@ -55,8 +55,11 @@ public class AutoFillAspect {
         //根据数据库操作类型，为对应的属性赋值
         if(operationType==OperationType.INSERT){
          try {
+                //获取实体对象上的 setCreateTime 方法
                 Method setCreateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDateTime.class);
+                //设置方法为可访问
                 setCreateTime.setAccessible(true);
+                //调用方法，填充创建时间 invoke:调用方法，填充创建时间
                 setCreateTime.invoke(entity, localDateTime);
 
                 Method setUpdateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
